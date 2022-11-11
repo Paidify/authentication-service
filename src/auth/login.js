@@ -32,13 +32,7 @@ router.post('/', async (req, res) => {
 
     if(person) {
         try {
-            user = await readOne(
-                'user',
-                { 'user': ['id'] },
-                [],
-                { 'person_id': person.id },
-                poolP
-            );
+            user = await readOne('user', { 'user': ['id'] }, [], { 'person_id': person.id }, poolP);
         } catch (err) {}
     } else {
         try {

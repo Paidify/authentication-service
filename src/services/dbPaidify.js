@@ -4,8 +4,8 @@ import {
     DB_HOST,
     DB_PORT,
     DB_SSL_CA,
-    DB_PAIDIFY_USER,
-    DB_PAIDIFY_PASSWORD,
+    DB_USER,
+    DB_PASSWORD,
     DB_PAIDIFY_SCHEMA,
 } from '../config/index.config.js';
 
@@ -13,8 +13,8 @@ const pool = createPool({
     port: DB_PORT,
     host: DB_HOST,
     ssl: NODE_ENV === 'production' ? { ca: DB_SSL_CA } : undefined,
-    user: DB_PAIDIFY_USER,
-    password: DB_PAIDIFY_PASSWORD,
+    user: DB_USER,
+    password: DB_PASSWORD,
     database: DB_PAIDIFY_SCHEMA,
 });
 
