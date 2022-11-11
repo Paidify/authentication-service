@@ -1,0 +1,32 @@
+{
+  "name": "authentication-service",
+  "version": "1.0.0",
+  "description": "Service that allows users to signup and login and provides them with web tokens for Single Sign-On.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/",
+    "dev": "nodemon src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paidify/authentication-service.git"
+  },
+  "keywords": [],
+  "author": "leovergaramrq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paidify/authentication-service/issues"
+  },
+  "homepage": "https://github.com/Paidify/authentication-service#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "type": "module"
+}
