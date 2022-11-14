@@ -3,6 +3,7 @@ import poolU from "./services/dbUniv.js";
 import poolP from "./services/dbPaidify.js";
 import pkg from '../package.json' assert { type: "json" };
 import login from './auth/login.js';
+import apiGateway from './api-gateway/apiGateway.js';
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.get('/ping', async (_, res) => {
     res.status(200).json(results);
 });
 app.use('/login', login);
+app.post('/api-gateway', async (_, res) => res.status(200).json(await apiGateway()));
 app.use((_, res) => res.status(404).send('Not Found'));
 
 export default app;
