@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
     }
     if(!user) return res.status(404).json({ message: 'User not found' });
     
-    if(!(await comparePwd(password, person ? person.password : user.password))) {
+    if(!(await comparePwd(String(password), person ? person.password : user.password))) {
         return res.status(401).json({ message: 'Invalid password' });
     }
 
