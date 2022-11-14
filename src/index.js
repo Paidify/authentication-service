@@ -8,9 +8,9 @@ app.listen(PORT, async () => {
         const response = await apiGateway();
         console.log('API Gateway response:', response.data);
     } catch(err) {
-        // if error is 409, it means that the service is already registered, so it's not a problem
-        if (err.response.status === 409) {
-            return console.log('Service already registered, no need to register again');
+        // if error is 409, it means that the service is already registered, so it may not be a problem
+        if (err.response && err.response.status === 409) {
+            return console.log('API Gateway message:', err.response.data);
         }
         console.log('Cannot connect to API Gateway');
     }
