@@ -7,19 +7,20 @@ import apiGateway from './api-gateway/apiGateway.js';
 
 const app = express();
 
+app.set('json spaces', 2);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, _, next) => {
     console.log(`${req.method} ${req.url}`);
     next();
 });
-
 app.use((_, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-auth-token');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     next();
 });
+
 app.get('/', (_, res) => res.status(200).json({
     message: 'Welcome to the Paidify Authorization Service',
     version: pkg.version,
@@ -49,6 +50,6 @@ app.get('/ping', async (_, res) => {
 });
 app.use('/login', login);
 app.post('/api-gateway', async (_, res) => res.status(200).json(await apiGateway()));
-app.use((_, res) => res.status(404).send('Not Found'));
+app.use((_, res) => res.status(404).json({ message: 'Not Found' }));
 
 export default app;
