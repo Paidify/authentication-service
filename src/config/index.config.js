@@ -21,3 +21,8 @@ export const DB_UNIV_SCHEMA = process.env.DB_UNIV_SCHEMA || 'univ';
 
 // jwt
 export const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+
+// other
+if (process.env.TERMINAL_TITLE) {
+    process.title = process.env.TERMINAL_TITLE;
+}
